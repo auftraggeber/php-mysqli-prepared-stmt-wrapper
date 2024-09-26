@@ -55,12 +55,17 @@ class Result
     }
 
     public function getFirstRow(): ?array {
-        if (empty($this->result_array)) return null;
+        if (!$this->hasResult()) return null;
         return $this->result_array[0];
     }
 
     public function getLastInsertId() {
         return $this->last_insert_id;
+    }
+
+    public function hasResult(): bool {
+        if ($this->error) return false;
+        return !empty($this->result_array);
     }
 
 }
