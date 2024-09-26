@@ -1,0 +1,21 @@
+{
+    "name": "auftraggeber/php-mysqli-prepared-stmt-wrapper",
+    "description": "A Wrapper of mysqli_stmt to ease its use",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "auftraggeber\\php_mysqli_prepared_stmt_wrapper\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jonas Langner",
+            "email": "jonas.langner.kuz@fh-zwickau.de"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+      "ext-mysqli": "*"
+    }
+}
