@@ -66,9 +66,11 @@ class PreparedStatement
         $result_array = [];
         if ($result instanceof mysqli_result) {
             while ($row = $result->fetch_array()) {
+                $array = [];
                 foreach ($row as $key => $value) {
-                    $result_array[$key] = $value;
+                    $array[$key] = $value;
                 }
+                $result_array[] = $array;
             }
         }
 
