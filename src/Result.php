@@ -35,9 +35,13 @@ class Result
     public function getResultArrayWithOnlyColumnIndices(): array {
         $return_array = [];
 
-        foreach ($this->result_array as $key => $row) {
-            if (is_string($key)) continue;
-            $return_array[] = $row;
+        foreach ($this->result_array as $row_array) {
+            $arr = [];
+            foreach ($row_array as $key => $value) {
+                if (!is_int($key)) continue;
+                $arr[$key] = $value;
+            }
+            $return_array[] = $arr;
         }
 
         return $return_array;
@@ -46,9 +50,13 @@ class Result
     public function getResultArrayWithOnlyColumnNames(): array {
         $return_array = [];
 
-        foreach ($this->result_array as $key => $row) {
-            if (is_int($key)) continue;
-            $return_array[] = $row;
+        foreach ($this->result_array as $row_array) {
+            $arr = [];
+            foreach ($row_array as $key => $value) {
+                if (!is_string($key)) continue;
+                $arr[$key] = $value;
+            }
+            $return_array[] = $arr;
         }
 
         return $return_array;
