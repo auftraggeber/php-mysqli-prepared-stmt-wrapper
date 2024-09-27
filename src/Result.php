@@ -36,7 +36,7 @@ class Result
         $return_array = [];
 
         foreach ($this->result_array as $key => $row) {
-            if (!is_int($key)) continue;
+            if (is_string($key)) continue;
             $return_array[] = $row;
         }
 

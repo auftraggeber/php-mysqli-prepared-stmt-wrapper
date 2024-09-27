@@ -40,6 +40,8 @@ class PreparedStatement
     }
 
     private function bindParams(... $params): void {
+        if (empty($params)) return;
+
         $types = "";
         $values = [];
         foreach ($params as $param) {
