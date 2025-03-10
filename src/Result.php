@@ -5,7 +5,9 @@ namespace auftraggeber\php_mysqli_prepared_stmt_wrapper;
 class Result
 {
 
-    private bool $error;
+    private bool $had_error;
+
+    private ?string $error_message;
 
     private int $affected_rows;
 
@@ -13,15 +15,20 @@ class Result
 
     private $last_insert_id;
 
-    public function __construct(bool $error, int $affected_rows, array $result_array, $last_insert_id) {
-        $this->error = $error;
+    public function __construct(bool $error, ?string $error_message, int $affected_rows, array $result_array, $last_insert_id) {
+        $this->had_error     = $error;
+        $this->error_message = $error_message;
         $this->affected_rows = $affected_rows;
         $this->result_array = $result_array;
         $this->last_insert_id = $last_insert_id;
     }
 
     public function hadError(): bool {
-        return $this->error;
+        return $this->had_error;
+    }
+
+    public function getErrorMessage(): ?string {
+        return $this->error_message;
     }
 
     public function getAffectedRows(): int {
@@ -72,7 +79,7 @@ class Result
     }
 
     public function hasResult(): bool {
-        if ($this->error) return false;
+        if ($this->had_error) return false;
         return !empty($this->result_array);
     }
 

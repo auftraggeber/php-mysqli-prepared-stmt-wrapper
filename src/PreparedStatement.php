@@ -76,7 +76,17 @@ class PreparedStatement
             }
         }
 
-        $result = new Result($this->stmt->error, $this->stmt->affected_rows, $result_array, $this->stmt->insert_id);
+        $error = $this->stmt->error;
+        $had_error = !empty($error);
+        $result = new Result(
+            $had_error,
+            $had_error
+                ? $error
+                : null,
+            $this->stmt->affected_rows,
+            $result_array,
+            $this->stmt->insert_id
+        );
         $this->stmt->reset();
         return $result;
     }
