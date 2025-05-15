@@ -7,12 +7,11 @@ use mysqli_result;
 use mysqli_stmt;
 
 /**
- * Class PreparedStatement
- * @package auftraggeber\php_mysqli_prepared_stmt_wrapper
- *
  * This class is a wrapper for mysqli prepared statements.
  * It allows you to prepare, bind parameters, and execute statements easily.
  * It also handles a default connection for you.
+ * 
+ * @package auftraggeber\php_mysqli_prepared_stmt_wrapper
  * @author Jonas Langner
  * @version 0.1.1
  * @since 2024-09-26

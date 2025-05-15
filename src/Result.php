@@ -3,11 +3,10 @@
 namespace auftraggeber\php_mysqli_prepared_stmt_wrapper;
 
 /**
- * Class Result
- * @package auftraggeber\php_mysqli_prepared_stmt_wrapper
- *
  * Represents the result of a database operation.
- * This class encapsulates the result of a query.
+ * * This class encapsulates the result of a query.
+ *
+ * @package auftraggeber\php_mysqli_prepared_stmt_wrapper
  * @author Jonas Langner
  * @version 0.1.1
  * @since 2024-09-26
