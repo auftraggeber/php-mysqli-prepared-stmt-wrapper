@@ -14,6 +14,7 @@
             "email": "jonas.langner.kuz@fh-zwickau.de"
         }
     ],
+    "version": "0.1.1",
     "minimum-stability": "dev",
     "require": {
       "ext-mysqli": "*"
